@@ -1,25 +1,40 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue';
+import TaskContainer from './components/TaskContainer.vue';
+import TaskForm from './components/TaskForm.vue';
+import { VueQueryDevtools } from '@tanstack/vue-query-devtools';
 </script>
 
 <template>
-  <div>
-    <h1>Tasks</h1>
-    <h1>Add Task</h1>
-  </div>
+  <main class="app-layout">
+    <div class="app-layout__tasks">
+      <TaskContainer />
+    </div>
+    <div class="app-layout__form">
+      <TaskForm />
+    </div>
+    <VueQueryDevtools />
+  </main>
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.app-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+
+.app-layout__tasks {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
 }
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+
+.app-layout__form {
+  max-height: 44vh;
+  border-top: 1px solid var(--color-border);
+  padding: 1rem;
+  background-color: var(--color-bg-alt);
 }
 </style>
