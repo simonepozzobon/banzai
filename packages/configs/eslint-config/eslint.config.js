@@ -10,6 +10,7 @@ export default [
 			"eslint-config",
 			".vscode",
 			"prettier-config",
+			"nodemon.json",
 		],
 	},
 ];

@@ -33,5 +33,3 @@ export default [
 		},
 	},
 ];
-
-export const ignores = ["vite.config.js"];
