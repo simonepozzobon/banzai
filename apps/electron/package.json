@@ -1,0 +1,22 @@
+{
+  "name": "@banzai/electron",
+  "version": "1.0.0",
+  "private": true,
+  "description": "electron app",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Simone Pozzobon",
+  "license": "ISC",
+  "prettier": "@banzai/prettier-config",
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "electron": "^35.0.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7"
+  }
+}

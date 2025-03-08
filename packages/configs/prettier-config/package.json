@@ -1,0 +1,10 @@
+{
+	"name": "@banzai/prettier-config",
+	"main": "index.json",
+	"version": "1.0.0",
+	"description": "Prettier Config",
+	"private": true,
+	"exports": {
+		".": "./index.json"
+	}
+}

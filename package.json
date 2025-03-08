@@ -1,0 +1,21 @@
+{
+	"name": "@banzai/monorepo",
+	"version": "1.0.0",
+	"description": "challenge",
+	"scripts": {
+		"clean": "find . \\( -name \"node_modules\" -o -name \"dist\" -o -name \".turbo\" \\) -type d -prune -exec rm -rf '{}' +",
+		"dev": "turbo dev"
+	},
+	"author": "Simone Pozzobon",
+	"license": "ISC",
+	"type": "module",
+	"workspaces": [
+		"packages/configs/*",
+		"packages/*",
+		"apps/*"
+	],
+	"devDependencies": {
+		"turbo": "^2.4.4"
+	},
+	"packageManager": "npm@10.8.2"
+}

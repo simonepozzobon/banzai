@@ -1,0 +1,15 @@
+{
+	"prettier.singleQuote": false,
+	"prettier.enable": true,
+	"typescript.preferences.quoteStyle": "double",
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": "explicit"
+	},
+	"eslint.workingDirectories": [{ "mode": "auto" }],
+	"[vue]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[javascript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	}
+}
