@@ -1,7 +1,6 @@
 <script setup>
-import { ref, computed } from 'vue';
+import { computed } from 'vue';
 import { INPUT_COMPONENTS } from '../constants/input-types';
-const COMPONENTS = ref(INPUT_COMPONENTS);
 
 const props = defineProps({
   label: {
@@ -45,7 +44,7 @@ const hasError = computed(() => Boolean(props.error));
     </div>
 
     <input
-      v-if="component === COMPONENTS.INPUT"
+      v-if="component === INPUT_COMPONENTS.INPUT"
       :id="inputId"
       v-model="value"
       type="text"
@@ -56,7 +55,7 @@ const hasError = computed(() => Boolean(props.error));
     />
 
     <textarea
-      v-else-if="component === COMPONENTS.TEXTAREA"
+      v-else-if="component === INPUT_COMPONENTS.TEXTAREA"
       :id="inputId"
       v-model="value"
       :name="name"

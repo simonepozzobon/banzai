@@ -1,7 +1,9 @@
 <script setup>
 import { computed, ref, watch } from 'vue';
 import dayjs from 'dayjs';
+import { ICONS } from '../constants/icons';
 import { useTasks } from '../queries/tasks';
+import Icon from './Icon.vue';
 const { updateTask } = useTasks();
 
 const props = defineProps({
@@ -58,6 +60,7 @@ const handleDeleteTask = () => emit('on-delete-task');
           aria-label="Mark task as complete"
         />
         <label :for="`task-${uuid}`" class="task-card__checkbox-label">
+          <Icon :icon="ICONS.CHECK" />
           <span class="screen-reader-only">{{ completedStatus ? 'Mark as incomplete' : 'Mark as complete' }}</span>
         </label>
       </div>
@@ -76,6 +79,7 @@ const handleDeleteTask = () => emit('on-delete-task');
         :aria-controls="`task-details-${uuid}`"
         @click="showDetails = !showDetails"
       >
+        <Icon :icon="ICONS.CHEVRON" />
         <span class="screen-reader-only">{{ showDetails ? 'Hide details' : 'Show details' }}</span>
       </button>
     </header>

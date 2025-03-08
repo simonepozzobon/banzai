@@ -6,7 +6,6 @@ import { useTasks } from '../queries/tasks';
 import FormInput from './FormInput.vue';
 import { INPUT_COMPONENTS } from '../constants/input-types';
 
-const COMPONENTS = ref(INPUT_COMPONENTS);
 const errors = ref({});
 const formData = reactive({ title: '', description: '' });
 
@@ -59,7 +58,7 @@ const handleAddTask = async () => {
       label="Title"
       :error="errors.title"
       placeholder="Enter task title"
-      :component="COMPONENTS.INPUT"
+      :component="INPUT_COMPONENTS.INPUT"
     />
     <FormInput
       v-model="formData.description"
@@ -67,7 +66,7 @@ const handleAddTask = async () => {
       label="Description"
       :error="errors.description"
       placeholder="Enter task description"
-      :component="COMPONENTS.TEXTAREA"
+      :component="INPUT_COMPONENTS.TEXTAREA"
     />
     <button type="submit" class="task-form__submit-btn">Add Task</button>
   </form>
