@@ -54,16 +54,11 @@ const handleDeleteTask = () => emit('on-delete-task');
           :id="`task-${uuid}`"
           v-model="completedStatus"
           type="checkbox"
-          class="task-card__checkbox visually-hidden"
+          class="task-card__checkbox screen-reader-only"
           aria-label="Mark task as complete"
         />
         <label :for="`task-${uuid}`" class="task-card__checkbox-label">
-          <svg viewBox="0 0 35.6 35.6" aria-hidden="true" class="task-card__checkbox-svg">
-            <circle class="task-card__checkbox-bg" cx="17.8" cy="17.8" r="17.8" />
-            <circle class="task-card__checkbox-stroke" cx="17.8" cy="17.8" r="14.37" />
-            <polyline class="task-card__checkbox-check" points="11.78 18.12 15.55 22.23 25.17 12.87" />
-          </svg>
-          <span class="visually-hidden">{{ completedStatus ? 'Mark as incomplete' : 'Mark as complete' }}</span>
+          <span class="screen-reader-only">{{ completedStatus ? 'Mark as incomplete' : 'Mark as complete' }}</span>
         </label>
       </div>
 
@@ -81,15 +76,7 @@ const handleDeleteTask = () => emit('on-delete-task');
         :aria-controls="`task-details-${uuid}`"
         @click="showDetails = !showDetails"
       >
-        <svg
-          aria-hidden="true"
-          class="task-card__toggle-icon"
-          viewBox="0 0 407.437 407.437"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <polygon points="386.258,91.567 203.718,273.512 21.179,91.567 0,112.815 203.718,315.87 407.437,112.815" />
-        </svg>
-        <span class="visually-hidden">{{ showDetails ? 'Hide details' : 'Show details' }}</span>
+        <span class="screen-reader-only">{{ showDetails ? 'Hide details' : 'Show details' }}</span>
       </button>
     </header>
 
