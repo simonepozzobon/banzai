@@ -42,7 +42,7 @@ Simple desktop application built with Electron and Vue.js v3, to manage a to-do 
 
 ### Development
 
-Start the development server:
+Start the application in development mode:
 
 ```bash
 npm run dev
