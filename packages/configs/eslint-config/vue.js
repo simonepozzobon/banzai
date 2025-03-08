@@ -1,34 +1,37 @@
 import eslint from "@eslint/js";
 import vuePlugin from "eslint-plugin-vue";
 import importPlugin from "eslint-plugin-import";
-import base from "./eslint.config";
+import base from "./eslint.config.js";
 
 export default [
-	...base,
+	...vuePlugin.configs["flat/recommended"],
 	eslint.configs.recommended,
+	...base,
 	{
-		files: ["**/*.vue", "**/*.js", "**/*.ts"],
+		files: ["**/*.vue", "**/*.js"],
 		languageOptions: {
-			globals: {
-				...eslint.configs.browser.languageOptions.globals,
-				...eslint.configs.node.languageOptions.globals,
-			},
-			parserOptions: {
-				ecmaVersion: 2022,
-				sourceType: "module",
-			},
+			ecmaVersion: "latest",
 		},
 		plugins: {
 			import: importPlugin,
 			vue: vuePlugin,
 		},
 		rules: {
-			// Include Vue 3 recommended rules - use the correct way to access them
-			...(vuePlugin.configs["vue3-recommended"]?.rules || {}),
-			"no-console": "warn",
-			"no-debugger": "warn",
 			"vue/multi-word-component-names": "off",
-			"vue/require-default-prop": "off",
+			"vue/html-self-closing": [
+				"error",
+				{
+					html: {
+						void: "always",
+						normal: "never",
+						component: "always",
+					},
+				},
+			],
+			"no-console": "warn",
+			"no-debugger": "error",
 		},
 	},
 ];
+
+export const ignores = ["vite.config.js"];
