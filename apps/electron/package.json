@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "electron app",
-  "main": "main.js",
+  "main": "src/main.js",
   "type": "module",
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon --config nodemon.json --exec \"electron .\"",
