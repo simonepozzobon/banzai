@@ -12,7 +12,7 @@ import { VueQueryDevtools } from '@tanstack/vue-query-devtools';
     <div class="app-layout__form">
       <TaskForm />
     </div>
-    <VueQueryDevtools />
+    <VueQueryDevtools buttonPosition="bottom-left" />
   </main>
 </template>
 
@@ -29,12 +29,5 @@ import { VueQueryDevtools } from '@tanstack/vue-query-devtools';
   flex: 1;
   min-height: 0;
   overflow-y: auto;
-}
-
-.app-layout__form {
-  max-height: 44vh;
-  border-top: 1px solid var(--color-border);
-  padding: 1rem;
-  background-color: var(--color-bg-alt);
 }
 </style>
