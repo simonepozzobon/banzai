@@ -33,7 +33,7 @@ const createWindow = () => {
     win.loadFile(indexPath);
   }
 
-  win.webContents.openDevTools({ mode: 'undocked' });
+  // win.webContents.openDevTools({ mode: 'undocked' });
 
   ipcMain.handle(HANDLERS.GET_TASKS, async () => storage.get(STORAGE_KEYS.TASKS));
 
