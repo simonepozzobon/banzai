@@ -1,4 +1,4 @@
-import { app, BrowserWindow, ipcMain } from 'electron';
+import { app, BrowserWindow, ipcMain, screen } from 'electron';
 import { fileURLToPath } from 'url';
 import path from 'path';
 import { config } from 'dotenv';
@@ -18,9 +18,14 @@ const createWindow = () => {
     },
   });
 
+  const { width: screenWidth, height: screenHeight } = screen.getPrimaryDisplay().workAreaSize;
+
+  const width = Math.min(800, screenWidth);
+  const height = Math.min(1000, screenHeight);
+
   const win = new BrowserWindow({
-    width: 800,
-    height: 1000,
+    width,
+    height,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
     },
