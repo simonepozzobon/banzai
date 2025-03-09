@@ -1,7 +1,7 @@
 <script setup>
 import TaskContainer from './components/TaskContainer.vue';
 import TaskForm from './components/TaskForm.vue';
-import { VueQueryDevtools } from '@tanstack/vue-query-devtools';
+// import { VueQueryDevtools } from '@tanstack/vue-query-devtools';
 </script>
 
 <template>
@@ -12,7 +12,7 @@ import { VueQueryDevtools } from '@tanstack/vue-query-devtools';
     <div class="app-layout__form">
       <TaskForm />
     </div>
-    <VueQueryDevtools buttonPosition="bottom-left" />
+    <!-- <VueQueryDevtools buttonPosition="bottom-left" /> -->
   </main>
 </template>
 
