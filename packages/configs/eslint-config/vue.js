@@ -8,6 +8,10 @@ export default [
 	eslint.configs.recommended,
 	...base,
 	{
+		env: {
+			browser: true,
+			node: true,
+		},
 		files: ["**/*.vue", "**/*.js"],
 		languageOptions: {
 			ecmaVersion: "latest",

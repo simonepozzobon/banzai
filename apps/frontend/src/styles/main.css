@@ -1,3 +1,5 @@
+@import url('./transitions.css');
+
 :root {
   /* Colors */
   --color-primary: #6cbe45;
