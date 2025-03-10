@@ -4,7 +4,7 @@ import Task from './Task.vue';
 import { ref } from 'vue';
 import { useTasks } from '../queries/tasks';
 
-const { tasks, isFetching, deleteTask } = useTasks();
+const { tasks, isLoading, deleteTask } = useTasks();
 
 const isOpenDeleteModal = ref(false);
 const taskToDelete = ref(null);
@@ -32,15 +32,17 @@ const handleDeleteTask = () => {
   <section class="task-section">
     <h1 class="task-section__header">Tasks</h1>
     <div class="task-section__content">
-      <p v-if="Boolean(isFetching)" class="task-section__loading">Loading tasks...</p>
-      <p v-if="!Boolean(tasks?.length > 0)" class="task-section__empty">
-        No tasks found. Create your first task below.
-      </p>
-      <ul v-else class="task-list">
-        <li v-for="task in tasks" :key="task.uuid" class="task-list__item">
-          <Task v-bind="task" @on-delete-task="() => showDeleteModal(task)" />
-        </li>
-      </ul>
+      <Transition name="fade">
+        <p v-if="Boolean(isLoading)" class="task-section__loading">Loading tasks...</p>
+        <p v-else-if="!Boolean(tasks?.length > 0)" class="task-section__empty">
+          No tasks found. Create your first task below.
+        </p>
+        <ul v-else class="task-list">
+          <li v-for="task in tasks" :key="task.uuid" class="task-list__item">
+            <Task v-bind="task" @on-delete-task="() => showDeleteModal(task)" />
+          </li>
+        </ul>
+      </Transition>
       <Modal v-if="Boolean(taskToDelete)" v-model="isOpenDeleteModal" title="Delete Task">
         <p class="modal__message">Are you sure you want to delete "{{ taskToDelete?.title }}"?</p>
         <template #footer>

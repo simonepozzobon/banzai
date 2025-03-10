@@ -9,7 +9,6 @@ export function useTasks() {
   const taskQuery = useQuery({
     queryKey: [QUERY_KEY],
     queryFn: electron.getTasks,
-    cacheTime: 0,
   });
 
   const addTaskMutation = useMutation({
@@ -28,7 +27,7 @@ export function useTasks() {
   });
 
   return {
-    isFetching: taskQuery.isFetching,
+    isLoading: taskQuery.isLoading,
     tasks: taskQuery.data,
     addTask: addTaskMutation.mutate,
     updateTask: updateTaskMutation.mutate,
