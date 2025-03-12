@@ -1,17 +1,15 @@
+import globals from "globals";
 import eslint from "@eslint/js";
 import vuePlugin from "eslint-plugin-vue";
 import importPlugin from "eslint-plugin-import";
 import base from "./eslint.config.js";
 
 export default [
-	...vuePlugin.configs["flat/recommended"],
 	eslint.configs.recommended,
+	...vuePlugin.configs["flat/recommended"],
 	...base,
+	{ languageOptions: { globals: globals.browser } },
 	{
-		env: {
-			browser: true,
-			node: true,
-		},
 		files: ["**/*.vue", "**/*.js"],
 		languageOptions: {
 			ecmaVersion: "latest",
@@ -35,5 +33,6 @@ export default [
 			"no-console": "warn",
 			"no-debugger": "error",
 		},
+		ignores: ["node_modules/**", "dist", "vite.config.js"],
 	},
 ];

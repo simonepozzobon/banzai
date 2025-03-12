@@ -1,25 +1,50 @@
-import base from "./eslint.config";
-import electronPlugin from "eslint-plugin-electron";
+import globals from "globals";
+import eslint from "@eslint/js";
+import base from "./eslint.config.js";
 
 export default [
+	eslint.configs.recommended,
 	...base,
-	...electronPlugin.configs.recommended,
 	{
+		files: ["**/*.js"],
 		languageOptions: {
+			ecmaVersion: "latest",
+			sourceType: "module",
 			globals: {
-				// This replaces the env settings for electron
-				...electronPlugin.environments.main.globals,
-				...electronPlugin.environments.renderer.globals,
-				...electronPlugin.environments.preload.globals,
+				...globals.node,
+				electron: "readonly",
+				app: "readonly",
+				BrowserWindow: "readonly",
+				ipcMain: "readonly",
+				ipcRenderer: "readonly",
+				webFrame: "readonly",
+				process: "readonly",
+				require: "readonly",
+				__dirname: "readonly",
+				__filename: "readonly",
+				module: "readonly",
 			},
 		},
-		plugins: {
-			electron: electronPlugin,
-		},
 		rules: {
-			"electron/no-ipc-sync": "error",
-			"electron/no-remote-require": "error",
-			"electron/prefer-send-sync": "error",
+			eqeqeq: "error",
+			curly: "error",
+			"dot-notation": "warn",
+			"array-callback-return": "error",
+			"no-empty": ["error", { allowEmptyCatch: true }],
+			"no-unused-vars": "error",
+			"no-shadow": "off",
+
+			"no-console": "warn",
+			"eol-last": "error",
+			semi: "error",
+			"prefer-const": "error",
+			"no-multiple-empty-lines": "warn",
+			"template-curly-spacing": "off",
+
+			"no-empty-pattern": "warn",
+			"no-unsafe-optional-chaining": "off",
+			"no-import-assign": "off",
 		},
+		ignores: ["node_modules/**", "dist/**", "nodemon.json"],
 	},
 ];
